@@ -75,6 +75,11 @@ Item.findOne({_id: requestedItemId}, function(err, item){
 });
 });
 
-app.listen(3001, function() {
-  console.log("port 3001 has been started");
+let port = process.env.PORT;
+if(port == null || port == ""){
+  port = 3001;
+}
+
+app.listen(port, function() {
+  console.log("server has been started");
 });
